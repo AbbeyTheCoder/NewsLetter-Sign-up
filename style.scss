@@ -1,0 +1,174 @@
+$Red: hsl(4, 100%, 67%);
+$Lighter: hsl(4, 100%, 90%);
+$Blue-800: hsl(234, 29%, 20%);
+$Blue-700: hsl(235, 18%, 26%);
+$Grey: hsl(0, 0%, 58%);
+$White: hsl(0, 0%, 100%);
+
+%input-btn-bsc {
+  border: none;
+  display: block;
+  border-radius: 10px;
+  width: 100%;
+  padding: 20px;
+  margin-block: 25px;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: $Blue-800;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header img {
+  display: block;
+  width: 100%;
+}
+
+section#form-page {
+  padding-inline: 25px;
+}
+
+input[type="email"] {
+  @extend %input-btn-bsc;
+  margin-top: 10px;
+  outline: solid thin $Grey;
+
+  &.invalid {
+    background-color: $Lighter-Red;
+    outline-color: $Red;
+
+    &::placeholder {
+      color: $Red;
+    }
+  }
+}
+
+button {
+  @extend %input-btn-bsc;
+  background-color: $Blue-700;
+  color: $White;
+  font-weight: 600;
+  font-size: 16px;
+  outline: transparent;
+  transition: background-color, box-shadow 0.3s;
+
+  &:hover {
+    background-color: $Red;
+    box-shadow: 0px 20px 40px $Red;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  li {
+    background-image: url("Assets/images/icon-list.svg");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 17px 17px;
+    padding-left: 45px;
+    margin-block: 10px;
+  }
+}
+
+label {
+  font-size: small;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  color: $Blue-700;
+
+  span:nth-child(2) {
+    display: none;
+    color: $Red;
+  }
+}
+
+section#success-msg {
+  display: none; // Toggles to flex on successful submission
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: self-start;
+  background-color: $White;
+  padding: 40px;
+  max-width: 500px;
+  border-radius: 39px;
+  height: 100vh;
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  button {
+    justify-self: flex-end;
+    margin-top: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    background-color: $Blue-700;
+  }
+  h1 {
+    font-size: clamp(21px, 3rem, 3.5rem);
+    font-weight: 700;
+  }
+  form {
+    margin-top: 40px;
+  }
+  main {
+    flex-direction: row-reverse;
+    gap: 30px;
+    align-items: center;
+    height: fit-content;
+    background-color: $White;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 40px;
+  }
+  header {
+    height: 100%;
+    width: 50%;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    li {
+      background-size: 1rem;
+    }
+  }
+
+  section#success-msg {
+    height: fit-content;
+    justify-content: space-between;
+
+    p {
+      margin-block: 20px 50px;
+    }
+  }
+}
