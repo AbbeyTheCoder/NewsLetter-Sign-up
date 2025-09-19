@@ -16,6 +16,7 @@ submitBtn.addEventListener("click", function (e) {
 
   if (empty && emailRegex.test(userEmail)) {
     document.getElementsByTagName("main")[0].style.display = "none";
+    document.getElementById("user-email").textContent = userEmail;
     document.getElementById("success-msg").style.display = "flex";
     return;
   }
